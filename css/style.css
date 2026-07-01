@@ -12,73 +12,87 @@ body {
 }
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f8f1d8;
-  background-image: url("../images/home_randalera.jpg");
-  background-position: center top;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  padding: 1.5rem;
+}
+
+.social-links {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-links__item {
+  display: block;
+  line-height: 0;
+  border-radius: 0.25rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.social-links__item:hover,
+.social-links__item:focus-visible {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.social-links__item:focus-visible {
+  outline: 2px solid #5c4a32;
+  outline-offset: 3px;
+}
+
+.social-links__item img {
+  display: block;
+  width: clamp(2rem, 7vw, 2.75rem);
+  height: auto;
 }
 
 .site-header {
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 50px;
-  z-index: 1;
-}
-
-.logo h1 {
   margin: 0;
   line-height: 0;
 }
 
 .logo img {
   display: block;
-  width: 189px;
+  width: min(88vw, 72vmin, 28rem);
   height: auto;
+  aspect-ratio: 1 / 1;
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 768px) {
   body {
-    background-size: 110%;
+    padding: 2.5rem;
   }
-}
 
-@media (max-width: 767px) {
-  body {
-    background-image: url("../images/home_randalera_1000.jpg");
+  .social-links {
+    top: 1.5rem;
+    right: 1.5rem;
+    gap: 1rem;
   }
-}
 
-@media (max-width: 559px) {
-  body {
-    background-position: center 80px;
-  }
-}
-
-@media (min-width: 560px) and (max-width: 1023px) {
-  body {
-    background-position: center 40px;
-  }
-}
-
-@media (max-width: 481px) {
-  .logo {
-    top: -3px;
-    left: 10px;
+  .social-links__item img {
+    width: clamp(2.25rem, 4vw, 2.75rem);
   }
 
   .logo img {
-    width: 115px;
+    width: min(70vw, 36rem);
   }
 }
 
-@media (max-width: 319px) {
-  .logo {
-    display: none;
+@media (min-width: 1024px) {
+  .logo img {
+    width: min(50vw, 32rem);
   }
 }
